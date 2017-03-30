@@ -12,6 +12,11 @@ export class MineBox
     private mine: boolean;
     private revealed: boolean;
 
+    /**
+     * Constructor method
+     * @param i location of box
+     * @param j location of box
+     */
     constructor(i: number, j: number)
     {
         this.i = i;
@@ -21,27 +26,47 @@ export class MineBox
         this.revealed = false;
     }
     
-    setMine(mine: boolean)
+    /**
+     * Method to set mine of this box
+     * @param mine 
+     */
+    setMine(mine: boolean): void
     {
         this.mine = mine;
     }
     
-    getMine()
+    /**
+     * Method to get mine from this box
+     * @return boolean
+     */
+    getMine(): boolean
     {
         return this.mine;
     }
     
-    setDanger(danger: number)
+    /**
+     * Set danger of this box, depends on neighbours
+     * @param danger
+     */
+    setDanger(danger: number): void
     {
         this.danger = danger;
     }
     
-    setRevealed(revealed: boolean)
+    /**
+     * Set if box is revealed or not
+     * @param revealed
+     */
+    setRevealed(revealed: boolean): void
     {
         this.revealed = revealed;
     }
     
-    isRevealed()
+    /**
+     * Get if box is revealed or not
+     * @return boolean
+     */
+    isRevealed(): boolean
     {
         return this.revealed;
     }

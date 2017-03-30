@@ -5,13 +5,13 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 
-import { GameService } from './game.service';
-import { MineBoxComponent } from './mine-box/mine-box.component';
-import { GameComponent } from './game/game.component';
-import { SettingsComponent } from './settings/settings.component';
-import { InstructionsComponent } from './instructions/instructions.component';
+import { GameService } from './services/game.service';
+import { MineBoxComponent } from './components/mine-box/mine-box.component';
+import { GameComponent } from './components/game/game.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { InstructionsComponent } from './components/instructions/instructions.component';
 
 const appRoutes: Routes = [
   { path: '', component: GameComponent },

@@ -1,14 +1,15 @@
 /**
- * MineField Class
- * @description represent filed of mine boxes with required methods
+ * Game service class - injectable, singleton
+ * @description all game logic, hold field of mineBoxes and etc
  * @author Filip Gulan
  */
 
+import {Injectable} from '@angular/core';
 import {MineBox} from './mine-box';
 
-export class MineField
+@Injectable()
+export class GameService
 {
-
     public space: MineBox[][];
     public width: number;
     public height: number;
@@ -17,12 +18,20 @@ export class MineField
     public lost: boolean;
     public won: boolean;
 
-    constructor(width: number, height: number)
+    /**
+     * Constructor method of this injectable singleton clas, create default field
+     */
+    constructor()
     {
-        this.restart(width, height);
+        this.restart(10, 10);
     }
-    
-    public restart(width: number, height: number)
+
+    /**
+     * Restart game using dimensions
+     * @width of new field
+     * @height of new field
+     */
+    public restart(width: number, height: number): void
     {
         this.width = width;
         this.height = height;
@@ -36,7 +45,10 @@ export class MineField
         this.generateDanger();
     }
 
-    private generateMineBoxes()
+    /**
+     * Generate mine of boxes into field
+     */
+    private generateMineBoxes(): void
     {
         for (let i = 0; i < this.width; i++)
         {
@@ -48,14 +60,17 @@ export class MineField
         }
     }
 
-    private generateMines()
+    /**
+     * Generate mines into random mine boxes
+     */
+    private generateMines(): void
     {
         let minesCount = this.minesCount;
-        while (minesCount != 0)
+        while (minesCount != 0) //while any mine left
         {
             let randomI = Math.floor(Math.random() * this.width);
             let randomJ = Math.floor(Math.random() * this.height);
-            if (!this.space[randomI][randomJ].getMine())
+            if (!this.space[randomI][randomJ].getMine()) //box does not have mine
             {
                 this.space[randomI][randomJ].setMine(true);;
                 minesCount--;
@@ -63,7 +78,10 @@ export class MineField
         }
     }
 
-    private generateDanger()
+    /**
+     * Generate danger depends on neighbours
+     */
+    private generateDanger(): void
     {
         for (let i = 0; i < this.width; i++)
         {
@@ -145,11 +163,13 @@ export class MineField
         }
     }
 
-    public expand(i: number, j: number)
+    /**
+     * Resursively expand space around mine box and all their 0 and danger neighbours
+     */
+    private expand(i: number, j: number): void
     {
         if (!this.space[i][j].isRevealed())
         {
-            //this.game.bombField.revealCount();
             this.space[i][j].setRevealed(true);
             this.revealedCount++;
             if (this.space[i][j].danger == 0)
@@ -173,22 +193,26 @@ export class MineField
             }
         }
     }
-    
-    public reveal(i: number, j: number)
+
+    /**
+     * Reveal mine box and look for other revealable neighbours using expand
+     */
+    public reveal(i: number, j: number): void
     {
-        if(!this.lost && !this.won)
+        if (!this.lost && !this.won) //still can play
         {
-            if (this.space[i][j].getMine())
+            if (this.space[i][j].getMine()) //ooops this box got mine
             {
                 this.space[i][j].setRevealed(true);
                 this.lost = true;
                 return;
             }
             this.expand(i, j);
-            if(this.revealedCount == this.width * this.height - this.minesCount)
+            if (this.revealedCount == this.width * this.height - this.minesCount) //all mine revealed yeah
             {
                 this.won = true;
             }
         }
     }
+
 }

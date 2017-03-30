@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * Menu component class
+ * @description navbar top menu
+ * @author Filip Gulan
+ */
+ 
+ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu',

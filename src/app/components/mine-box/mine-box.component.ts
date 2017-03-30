@@ -1,3 +1,9 @@
+/**
+ * Minebox component class
+ * @description graphic representation of box
+ * @author Filip Gulan
+ */
+ 
 import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
@@ -7,8 +13,8 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class MineBoxComponent implements OnInit
 {
-    @Input() i;
-    @Input() j;
+    @Input() i: number;
+    @Input() j: number;
     @Input() danger = 0;
     @Input() mine = false;
     @Input() revealed = false;
