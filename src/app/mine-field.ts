@@ -19,7 +19,7 @@ export class MineField
         this.width = width;
         this.height = height;
         this.space = [];
-        this.minesCount = Math.floor(this.width * this.height * 0.30);
+        this.minesCount = Math.floor(this.width * this.height * 0.15);
         this.generateMineBoxes();
         this.generateMines();
         this.generateDanger();
@@ -54,6 +54,8 @@ export class MineField
 
     generateDanger()
     {
+        let debug = "";
+        let debug2 = "";
         for (let i = 0; i < this.width; i++)
         {
             for (let j = 0; j < this.height; j++)
@@ -130,6 +132,41 @@ export class MineField
                     }
                 }
                 this.space[i][j].setDanger(danger);
+                debug += "|" + danger + "|";
+                debug2 += "|" + this.space[i][j].getMine() + "|";
+            }
+            debug += "\n";
+            debug2 += "\n";
+        }
+        console.log(debug);
+        console.log("==================");
+        console.log(debug2);
+    }
+
+    expand(i, j)
+    {
+        if (!this.space[i][j].isRevealed())
+        {
+            //this.game.bombField.revealCount();
+            this.space[i][j].setRevealed(true);
+            if (this.space[i][j].danger == 0)
+            {
+                if (i + 1 < this.width) //it is not last in row, so i can chcek next bombBox
+                {
+                    this.expand(i + 1, j);
+                }
+                if (j + 1 < this.height) //it is not last in col
+                {
+                    this.expand(i, j + 1);
+                }
+                if (i - 1 >= 0) //it is not first in row
+                {
+                    this.expand(i - 1, j);
+                }
+                if (j - 1 >= 0) //it is not first in col
+                {
+                    this.expand(i, j - 1);
+                }
             }
         }
     }

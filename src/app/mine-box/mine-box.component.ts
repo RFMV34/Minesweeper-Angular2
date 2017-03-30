@@ -11,6 +11,7 @@ export class MineBoxComponent implements OnInit
     @Input() j;
     @Input() danger = 0;
     @Input() mine = false;
+    @Input() revealed = false;
     
     constructor() {}
 

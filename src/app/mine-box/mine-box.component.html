@@ -1,1 +1,1 @@
-<a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">{{danger}}</i></a>
+<a [ngClass]="{'btn-floating btn-large': true, 'brown': revealed, 'green darken-4': !revealed}"><i *ngIf="revealed" style="font-weight: bold;" class="material-icons">{{danger}}</i></a>

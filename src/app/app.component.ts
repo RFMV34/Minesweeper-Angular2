@@ -19,8 +19,8 @@ export class AppComponent
         //this.numbers = [1,2,3]
     }
     
-    clicked(event)
+    clicked(event, i, j)
     {
-        this.mineField.space[0][0].setDanger(10);
+        this.mineField.expand(i, j);
     }
 }
