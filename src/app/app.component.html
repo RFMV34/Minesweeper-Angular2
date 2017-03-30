@@ -1,8 +1,2 @@
 <app-menu></app-menu>
-<div style="padding: 20px; width: 640px; margin: 0px auto" class="light green">
-    <ng-container *ngFor="let row of mineField.space">
-        <ng-container *ngFor="let mineBox of row">
-            <app-mine-box  [revealed]="mineBox.revealed" [danger]="mineBox.danger" (click)="clicked($event, mineBox.i, mineBox.j)"></app-mine-box>
-        </ng-container>
-    </ng-container>
-</div>
+<router-outlet></router-outlet>

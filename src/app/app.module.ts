@@ -9,17 +9,30 @@ import { MenuComponent } from './menu/menu.component';
 
 import { GameService } from './game.service';
 import { MineBoxComponent } from './mine-box/mine-box.component';
+import { GameComponent } from './game/game.component';
+import { SettingsComponent } from './settings/settings.component';
+import { InstructionsComponent } from './instructions/instructions.component';
+
+const appRoutes: Routes = [
+  { path: '', component: GameComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'instructions', component: InstructionsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    MineBoxComponent
+    MineBoxComponent,
+    GameComponent,
+    SettingsComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [GameService],
   bootstrap: [AppComponent]

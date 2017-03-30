@@ -10,22 +10,33 @@ export class MineField
 {
 
     public space: MineBox[][];
-    private width: number;
-    private height: number;
+    public width: number;
+    public height: number;
     private minesCount: number;
+    private revealedCount: number;
+    public lost: boolean;
+    public won: boolean;
 
-    constructor(width, height)
+    constructor(width: number, height: number)
+    {
+        this.restart(width, height);
+    }
+    
+    public restart(width: number, height: number)
     {
         this.width = width;
         this.height = height;
         this.space = [];
         this.minesCount = Math.floor(this.width * this.height * 0.15);
+        this.revealedCount = 0;
+        this.lost = false;
+        this.won = false;
         this.generateMineBoxes();
         this.generateMines();
         this.generateDanger();
     }
 
-    generateMineBoxes()
+    private generateMineBoxes()
     {
         for (let i = 0; i < this.width; i++)
         {
@@ -37,7 +48,7 @@ export class MineField
         }
     }
 
-    generateMines()
+    private generateMines()
     {
         let minesCount = this.minesCount;
         while (minesCount != 0)
@@ -52,10 +63,8 @@ export class MineField
         }
     }
 
-    generateDanger()
+    private generateDanger()
     {
-        let debug = "";
-        let debug2 = "";
         for (let i = 0; i < this.width; i++)
         {
             for (let j = 0; j < this.height; j++)
@@ -132,23 +141,17 @@ export class MineField
                     }
                 }
                 this.space[i][j].setDanger(danger);
-                debug += "|" + danger + "|";
-                debug2 += "|" + this.space[i][j].getMine() + "|";
             }
-            debug += "\n";
-            debug2 += "\n";
         }
-        console.log(debug);
-        console.log("==================");
-        console.log(debug2);
     }
 
-    expand(i, j)
+    public expand(i: number, j: number)
     {
         if (!this.space[i][j].isRevealed())
         {
             //this.game.bombField.revealCount();
             this.space[i][j].setRevealed(true);
+            this.revealedCount++;
             if (this.space[i][j].danger == 0)
             {
                 if (i + 1 < this.width) //it is not last in row, so i can chcek next bombBox
@@ -167,6 +170,24 @@ export class MineField
                 {
                     this.expand(i, j - 1);
                 }
+            }
+        }
+    }
+    
+    public reveal(i: number, j: number)
+    {
+        if(!this.lost && !this.won)
+        {
+            if (this.space[i][j].getMine())
+            {
+                this.space[i][j].setRevealed(true);
+                this.lost = true;
+                return;
+            }
+            this.expand(i, j);
+            if(this.revealedCount == this.width * this.height - this.minesCount)
+            {
+                this.won = true;
             }
         }
     }

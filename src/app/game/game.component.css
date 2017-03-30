@@ -1,0 +1,9 @@
+.restartButon
+{
+    position: fixed; top: 150px; right: 10px
+}
+
+.gameoverText
+{
+    position: fixed; top: 50px; right: 10px
+}

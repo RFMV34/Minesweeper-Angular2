@@ -1,24 +1,10 @@
-<nav class="lighten-2 red">
+<nav class="cyan">
     <div class="nav-wrapper">
-        <span class="brand-logo hide-on-med-and-down">Minesweeper</span>
+        <span class="brand-logo hide-on-med-and-down">&nbsp;Minesweeper</span>
         <ul id="nav-mobile" class="right">
-            <li>
-                Rows:
-            </li>
-            <li>
-                <form>
-                    <input min="5" max="100" type="number" class="white black-text">
-                </form>
-            </li>
-            <li>
-                <span>Cols:</span>
-            </li>
-            <li>
-                <form>
-                    <input min="5" max="100" type="number" class="white black-text">
-                </form>
-            </li>
-            <li><a class="btn-large darken-4 red">New Game</a></li>
+            <li><a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="cyan darken-1"><i class="material-icons left">games</i> Game</a></li>
+            <li><a routerLink="/settings" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="cyan darken-1"><i class="material-icons left">settings</i> Settings</a></li>
+            <li><a routerLink="/instructions" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="cyan darken-1"><i class="material-icons left">info</i> Instructions</a></li>
         </ul>
     </div>
 </nav>

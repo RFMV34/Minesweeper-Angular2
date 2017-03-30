@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <h2>Settings</h2>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="rows">Cols</label><br>
+                    <input name="rows" [(ngModel)]="width" id="rows" type="number">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="cols">Rows</label><br>
+                    <input name="cols" [(ngModel)]="height" id="cols" type="number">
+                </div>
+            </div>
+            <div class="row right-align">
+                <a class="btn cyan" (click)="setGame($event)">Save</a>
+            </div>
+        </form>
+    </div>
+</div>

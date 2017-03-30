@@ -1,1 +1,5 @@
-<a [ngClass]="{'btn-floating btn-large': true, 'brown': revealed, 'green darken-4': !revealed}"><i *ngIf="revealed" style="font-weight: bold;" class="material-icons">{{danger}}</i></a>
+<a [ngClass]="{'btn-floating btn-large': true, 'red': revealed && mine, 'brown': revealed && !mine, 'green darken-4': !revealed}">
+    <i *ngIf="revealed" style="font-weight: bold;">
+        {{danger}}
+    </i>
+</a>
