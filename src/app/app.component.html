@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<app-menu></app-menu>
+<div style="width: 600px; margin: 0px auto" class="light green">
+    <ng-container *ngFor="let row of mineField.space">
+        <ng-container *ngFor="let mineBox of row">
+            <app-mine-box  [danger]="mineBox.danger" (click)="clicked($event)"></app-mine-box>
+        </ng-container>
+    </ng-container>
+</div>
