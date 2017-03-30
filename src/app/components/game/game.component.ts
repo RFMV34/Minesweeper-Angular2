@@ -19,7 +19,7 @@ export class GameComponent implements OnInit
      * Constructor
      * @param dependency injected game service
      */
-    constructor(private game: GameService)
+    constructor(public game: GameService)
     {
         this.game = game;
     }
