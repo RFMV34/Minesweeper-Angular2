@@ -1,6 +1,6 @@
 <h1 *ngIf="game.won" class="gameoverText animated bounceInRight green-text text-darken-4"><i class="material-icons left large">thumb_up</i> Win!</h1>
 <a *ngIf="game.won" class="restartButon btn cyan animated bounceInRight" (click)="restartClicked($event)">Restart</a>
-<h1 *ngIf="game.lost" class="gameoverText animated bounceInRight red-text text-darken-4"><i class="material-icons left large">thumb_down</i> Lose!</h1>
+<h1 *ngIf="game.lost" class="gameoverText animated bounceInRight red-text text-darken-4"><i class="material-icons left large">thumb_down</i> Loss!</h1>
 <a *ngIf="game.lost" class="restartButon btn cyan animated bounceInRight" (click)="restartClicked($event)">Restart</a>
 <div [ngStyle]="{'padding': '20px', 'width': (game.width * 60 + 40) + 'px', 'margin': '0px auto'}" class="light green">
     <ng-container *ngFor="let row of game.space">

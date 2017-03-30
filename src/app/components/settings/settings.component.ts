@@ -37,6 +37,32 @@ export class SettingsComponent implements OnInit
         this.game.restart(this.width, this.height);
         this.router.navigateByUrl('');
     }
+    
+    /**
+     * Prevent too low, too high and real number in input, it is because angular2 has not got number form validation so far..
+     * @param event
+     */
+    onChangeDimension(event): void
+    {
+        if(this.width > 50)
+        {
+            this.width = 50;
+        }
+        if(this.width < 2)
+        {
+            this.width = 2;
+        }
+        if(this.height > 50)
+        {
+            this.height = 50;
+        }
+        if(this.height < 2)
+        {
+            this.height = 2;
+        }
+        this.width = Math.floor(this.width);
+        this.height = Math.floor(this.height);
+    }
 
     ngOnInit()
     {

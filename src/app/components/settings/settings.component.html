@@ -5,13 +5,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <label for="rows">Cols</label><br>
-                    <input name="rows" [(ngModel)]="width" id="rows" type="number">
+                    <input (change)="onChangeDimension($event)" min="2" max="50" name="rows" [(ngModel)]="width" id="rows" type="number">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <label for="cols">Rows</label><br>
-                    <input name="cols" [(ngModel)]="height" id="cols" type="number">
+                    <input (change)="onChangeDimension($event)" min="2" max="50" name="cols" [(ngModel)]="height" id="cols" type="number">
                 </div>
             </div>
             <div class="row right-align">

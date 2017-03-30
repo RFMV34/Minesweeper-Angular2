@@ -1,9 +1,15 @@
 .restartButon
 {
-    position: fixed; top: 150px; right: 10px
+    position: fixed; 
+    top: 150px; 
+    right: 10px;
+    z-index: 999;
 }
 
 .gameoverText
 {
-    position: fixed; top: 50px; right: 10px
+    position: fixed; 
+    top: 50px; 
+    right: 10px;
+    z-index: 999;
 }
