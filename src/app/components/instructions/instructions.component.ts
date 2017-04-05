@@ -7,15 +7,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-instructions',
+  selector: 'fu-app-instructions',
   templateUrl: './instructions.component.html',
   styleUrls: ['./instructions.component.css']
 })
 export class InstructionsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    /* useless but needed comment */
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    /* useless but needed comment */
   }
 
 }

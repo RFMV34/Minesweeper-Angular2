@@ -1,10 +1,10 @@
-import { MinesweeperPage } from './app.po';
+import { FlowupMinesweeperPage } from './app.po';
 
-describe('minesweeper App', () => {
-  let page: MinesweeperPage;
+describe('flowup-minesweeper App', () => {
+  let page: FlowupMinesweeperPage;
 
   beforeEach(() => {
-    page = new MinesweeperPage();
+    page = new FlowupMinesweeperPage();
   });
 
   it('should display message saying app works', () => {

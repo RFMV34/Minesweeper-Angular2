@@ -5,7 +5,7 @@
 <div [ngStyle]="{'padding': '20px', 'width': (game.width * 60 + 40) + 'px', 'margin': '0px auto'}" class="light green">
     <ng-container *ngFor="let row of game.space">
         <ng-container *ngFor="let mineBox of row">
-            <app-mine-box [mine]="mineBox.mine" [revealed]="mineBox.revealed" [danger]="mineBox.danger" (click)="boxClicked($event, mineBox.i, mineBox.j)"></app-mine-box>
+            <fu-app-mine-box [mine]="mineBox.mine" [revealed]="mineBox.revealed" [danger]="mineBox.danger" (click)="boxClicked($event, mineBox.i, mineBox.j)"></fu-app-mine-box>
         </ng-container>
     </ng-container>
 </div>

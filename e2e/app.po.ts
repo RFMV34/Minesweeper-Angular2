@@ -1,11 +1,11 @@
 import { browser, element, by } from 'protractor';
 
-export class MinesweeperPage {
-  navigateTo() {
+export class FlowupMinesweeperPage {
+  navigateTo(): any {
     return browser.get('/');
   }
 
-  getParagraphText() {
+  getParagraphText(): any {
     return element(by.css('app-root h1')).getText();
   }
 }
