@@ -11,9 +11,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo '\033[31m'
+                echo -e '\033[31m'
                 bat 'npm --version'
-                echo '\033[0m'
+                echo -e '\033[0m'
             }
         }
         stage('Deploy') {
