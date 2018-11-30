@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'npm run lint'
+                bat 'npm --version'
             }
         }
         stage('Deploy') {
