@@ -6,7 +6,7 @@ pipeline {
             steps {
                 bat 'npm install'
                 bat 'npm run build'
-                archiveArtifacts artifacts: '**/dist/*', fingerprint: true
+                archiveArtifacts artifacts: 'dist/*', fingerprint: true
             }
         }
         stage('Test') {
