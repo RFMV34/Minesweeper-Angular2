@@ -6,19 +6,19 @@ pipeline {
             steps {
                 bat 'npm install'
                 bat 'npm run build'
-                archiveArtifacts artifacts: 'dist/*', fingerprint: true
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
             }
         }
         stage('Test') {
             steps {
-                echo -e '\033[31m'
+                echo '\033[31m'
                 bat 'npm --version'
-                echo -e '\033[0m'
+                echo '\033[0m'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+               bat 'dir'
             }
         }
     }
