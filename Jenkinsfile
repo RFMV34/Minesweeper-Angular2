@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               bat 'cp -R dist C:\Users\gulanf\Desktop'
+               bat 'cp -R dist C:\\Users\\gulanf\\Desktop'
             }
         }
     }
